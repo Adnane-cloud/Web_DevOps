@@ -1,4 +1,4 @@
-<?php require '../app/views/admin/layout/header.php'; ?>
+<?php require __DIR__ . '/../admin/layout/header.php'; ?>
 <link rel="stylesheet" href="/css/register.css">
 
 <ul class="circles">
@@ -57,4 +57,6 @@
     </div>
 </div>
 
-<?php require '../app/views/admin/layout/footer.php'; ?>
+<?php require __DIR__ . '/../admin/layout/footer.php'; ?>
+
+

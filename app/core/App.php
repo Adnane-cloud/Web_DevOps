@@ -3,9 +3,10 @@
 class App {
     public function __construct() {
         // Load routes
-        require '../routes/web.php';
+        require __DIR__ . '/../../routes/web.php';
         
         // Dispatch
         Router::dispatch();
     }
 }
+

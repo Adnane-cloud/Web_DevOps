@@ -1,4 +1,4 @@
-<?php require '../app/views/admin/layout/header.php'; ?>
+<?php require __DIR__ . '/../admin/layout/header.php'; ?>
 <link rel="stylesheet" href="/css/profile.css">
 
 <ul class="circles">
@@ -60,7 +60,7 @@
 
                 <!-- Sign Out Button (Sidebar) -->
                 <div class="mt-4">
-                     <a href="logout" class="btn w-100 btn-glass-danger rounded-pill fw-bold py-2">
+                     <a href="/logout" class="btn w-100 btn-glass-danger rounded-pill fw-bold py-2">
                         <i class="bi bi-box-arrow-right me-2"></i> Sign Out
                     </a>
                 </div>
@@ -148,4 +148,7 @@
         box-shadow: 0 4px 12px rgba(255, 59, 48, 0.2);
     }
 </style>
-<?php require '../app/views/admin/layout/footer.php'; ?>
+<?php require __DIR__ . '/../admin/layout/footer.php'; ?>
+
+
+

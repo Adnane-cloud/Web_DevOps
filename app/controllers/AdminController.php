@@ -9,7 +9,7 @@ class AdminController extends Controller {
 
     public function index() {
         // Dashboard Home
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
 
         // 1. Total Events
         $stmt = $pdo->query("SELECT COUNT(*) FROM evenements");
@@ -90,7 +90,7 @@ class AdminController extends Controller {
 
     public function events() {
         // Event Management
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         
         // Fetch all events with creator name (optional)
         $stmt = $pdo->query("SELECT * FROM evenements ORDER BY date_evenement DESC");
@@ -111,7 +111,7 @@ class AdminController extends Controller {
 
     public function add_event() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            require '../app/config/database.php';
+            require __DIR__ . '/../config/database.php';
 
             $title = $_POST['title'];
             $description = $_POST['description'];
@@ -162,7 +162,7 @@ class AdminController extends Controller {
 
     public function delete_event() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            require '../app/config/database.php';
+            require __DIR__ . '/../config/database.php';
             $id = $_POST['id'];
             
             // Optional: Check ownership or admin rights (already checked by constructor)
@@ -175,7 +175,7 @@ class AdminController extends Controller {
     }
 
     public function edit_event() {
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         $id = $_GET['id'] ?? 0;
 
         $stmt = $pdo->prepare("SELECT * FROM evenements WHERE id = :id");
@@ -202,7 +202,7 @@ class AdminController extends Controller {
 
     public function update_event() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            require '../app/config/database.php';
+            require __DIR__ . '/../config/database.php';
             
             $id = $_POST['id'];
             $title = $_POST['title'];
@@ -258,7 +258,7 @@ class AdminController extends Controller {
 
     public function categories() {
         // Categories Management
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
 
         $stmt = $pdo->query("
             SELECT c.*, COUNT(e.id) as event_count 
@@ -278,7 +278,7 @@ class AdminController extends Controller {
 
     public function add_category() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            require '../app/config/database.php';
+            require __DIR__ . '/../config/database.php';
             
             $name = trim($_POST['name']);
             $image = 'default_category.jpg';
@@ -320,7 +320,7 @@ class AdminController extends Controller {
 
     public function delete_category() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            require '../app/config/database.php';
+            require __DIR__ . '/../config/database.php';
             $id = $_POST['id'];
             
             // Optional: Check if used in events? For now foreign key might restrict or set null.
@@ -340,7 +340,7 @@ class AdminController extends Controller {
     }
 
     public function edit_category() {
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         $id = $_GET['id'] ?? 0;
 
         $stmt = $pdo->prepare("SELECT * FROM categories WHERE id = :id");
@@ -364,7 +364,7 @@ class AdminController extends Controller {
 
     public function update_category() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            require '../app/config/database.php';
+            require __DIR__ . '/../config/database.php';
             
             $id = $_POST['id'];
             $name = trim($_POST['name']);
@@ -408,7 +408,7 @@ class AdminController extends Controller {
     }
 
     public function attendance() {
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         
         $search = $_GET['search'] ?? '';
         $eventId = $_GET['event_id'] ?? '';
@@ -483,7 +483,7 @@ class AdminController extends Controller {
             exit;
         }
 
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
 
         // Fetch all events
         $stmt = $pdo->prepare("SELECT * FROM evenements ORDER BY id DESC");
@@ -528,7 +528,7 @@ class AdminController extends Controller {
             exit;
         }
 
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         $userId = $_GET['id'];
 
         // 1. Fetch User Info
@@ -574,3 +574,4 @@ class AdminController extends Controller {
         exit;
     }
 }
+

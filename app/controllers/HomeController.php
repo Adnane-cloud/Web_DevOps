@@ -2,7 +2,7 @@
 
 class HomeController extends Controller {
     public function index() {
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         
         // Fetch Categories (for grid)
         $catStmt = $pdo->query("SELECT * FROM categories LIMIT 6");
@@ -27,3 +27,4 @@ class HomeController extends Controller {
         $this->view('home/index', $data);
     }
 }
+

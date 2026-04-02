@@ -3,7 +3,7 @@
 class CalendarController extends Controller {
     public function index() {
         if (session_status() === PHP_SESSION_NONE) session_start();
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         
         // Always use standard layout (no admin sidebar) for calendar
         $layout = 'user';
@@ -23,7 +23,7 @@ class CalendarController extends Controller {
     }
 
     public function get_events() {
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         
         // Fetch all active events
         // FullCalendar expects: id, title, start, end, url (optional)
@@ -60,3 +60,4 @@ class CalendarController extends Controller {
         echo json_encode($formattedEvents);
     }
 }
+

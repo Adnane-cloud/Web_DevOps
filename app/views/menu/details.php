@@ -1,4 +1,4 @@
-<?php require '../app/views/admin/layout/header.php'; ?>
+<?php require __DIR__ . '/../admin/layout/header.php'; ?>
 <link rel="stylesheet" href="/css/details.css">
 
 
@@ -9,10 +9,10 @@
          if(strpos($imgSrc, 'uploads/') === 0) {
             $imgSrc = '/' . $imgSrc;
         } else {
-            $imgSrc = '/images' . $imgSrc;
+            $imgSrc = '/images/' . ltrim($imgSrc, '/');
         }
     } else {
-        $imgSrc = 'images/default_event.jpg'; 
+        $imgSrc = '/images/default_event.jpg'; 
     }
 ?>
 
@@ -122,7 +122,7 @@
                             <h6 class="fw-bold text-success">You are registered!</h6>
                         </div>
 
-                        <a href="menu/invitation/<?= $event['id'] ?>" class="btn btn-dark w-100 py-3 rounded-pill fw-bold mb-3">
+                        <a href="/menu/invitation/<?= $event['id'] ?>" class="btn btn-dark w-100 py-3 rounded-pill fw-bold mb-3">
                             <i class="bi bi-download me-2"></i> Download Invitation
                         </a>
                         
@@ -177,4 +177,7 @@
     }
 </script>
 
-<?php require '../app/views/admin/layout/footer.php'; ?>
+<?php require __DIR__ . '/../admin/layout/footer.php'; ?>
+
+
+

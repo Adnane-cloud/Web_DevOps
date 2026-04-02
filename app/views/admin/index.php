@@ -293,7 +293,7 @@ require_once __DIR__ . '/layout/greeting.php';
         </div>
     </div>
 </div>
-<?php require '../app/views/admin/layout/footer.php'; ?>
+<?php require __DIR__ . '/../admin/layout/footer.php'; ?>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -359,3 +359,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+

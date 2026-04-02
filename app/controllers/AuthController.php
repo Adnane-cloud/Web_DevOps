@@ -19,7 +19,7 @@ class AuthController extends Controller {
             }
 
             // Database Connection
-            require '../app/config/database.php';
+            require __DIR__ . '/../config/database.php';
             // $pdo is now available
 
             try {
@@ -112,7 +112,7 @@ class AuthController extends Controller {
             }
 
             // Database Connection
-            require '../app/config/database.php';
+            require __DIR__ . '/../config/database.php';
 
             try {
                 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -177,3 +177,4 @@ class AuthController extends Controller {
         exit;
     }
 }
+

@@ -1,4 +1,4 @@
-<?php require '../app/views/admin/layout/header.php'; ?>
+<?php require __DIR__ . '/../admin/layout/header.php'; ?>
 
 <link rel="stylesheet" href="/css/store.css?v=<?= time() ?>">
 <link rel="stylesheet" href="/css/store_animation.css">
@@ -149,4 +149,5 @@
 
 <script src="/js/carousel.js?v=<?= time() ?>"></script>
 <script src="/js/store_filter.js?v=<?= time() ?>"></script>
-<?php require '../app/views/admin/layout/footer.php'; ?>
+<?php require __DIR__ . '/../admin/layout/footer.php'; ?>
+

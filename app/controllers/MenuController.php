@@ -2,7 +2,7 @@
 
 class MenuController extends Controller {
     public function index() {
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
 
         // 1. Fetch Categories
         $catStmt = $pdo->query("SELECT * FROM categories");
@@ -74,7 +74,7 @@ class MenuController extends Controller {
             exit;
         }
 
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         $userId = $_SESSION['user_id'];
 
         // Fetch user inscriptions with event details
@@ -102,7 +102,7 @@ class MenuController extends Controller {
             exit;
         }
 
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         $userId = $_SESSION['user_id'];
 
         // Fetch Event Details
@@ -151,7 +151,7 @@ class MenuController extends Controller {
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            require '../app/config/database.php';
+            require __DIR__ . '/../config/database.php';
             
             $userId = $_SESSION['user_id'];
             $eventId = $_POST['event_id'];
@@ -198,7 +198,7 @@ class MenuController extends Controller {
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            require '../app/config/database.php';
+            require __DIR__ . '/../config/database.php';
             
             $userId = $_SESSION['user_id'];
             $eventId = $_POST['event_id'];
@@ -219,7 +219,7 @@ class MenuController extends Controller {
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            require '../app/config/database.php';
+            require __DIR__ . '/../config/database.php';
             
             $userId = $_SESSION['user_id'];
             $eventId = $_POST['event_id'];
@@ -252,7 +252,7 @@ class MenuController extends Controller {
             exit;
         }
 
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         $userId = $_SESSION['user_id'];
 
         // Fetch inscription with token
@@ -317,12 +317,12 @@ class MenuController extends Controller {
 </head>
 <body>
     <div class="print-bar">
-        <button onclick="window.print()">📄 Save as PDF / Print</button>
+        <button onclick="window.print()">Save as PDF / Print</button>
         <p>Click the button above, then select "Save as PDF" as the destination</p>
     </div>
     <div class="ticket">
         <div class="ticket-header">
-            <h1>🎫 Event Invitation</h1>
+            <h1>Event Invitation</h1>
             <p>Your ticket to an amazing experience</p>
         </div>
         <div class="ticket-body">
@@ -353,7 +353,7 @@ class MenuController extends Controller {
             <span class="token">' . $token . '</span>
         </div>
         <div class="footer">
-            <p>Powered by <strong>Eventium</strong> • This invitation is non-transferable</p>
+            <p>Powered by <strong>Eventium</strong> - This invitation is non-transferable</p>
         </div>
     </div>
 </body>
@@ -371,7 +371,7 @@ class MenuController extends Controller {
             exit;
         }
 
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         $query = '%' . trim($_GET['q']) . '%';
 
         $stmt = $pdo->prepare("SELECT id, titre as title, description, image_cover FROM evenements WHERE titre LIKE :query OR description LIKE :query LIMIT 5");
@@ -392,3 +392,4 @@ class MenuController extends Controller {
         exit;
     }
 }
+

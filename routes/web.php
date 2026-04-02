@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
 Router::get('/', 'HomeController@index');
 Router::get('/menu', 'MenuController@index');
@@ -32,3 +35,4 @@ Router::get('/calendar/api/events', 'CalendarController@get_events');
 Router::post('/menu/comment', 'MenuController@add_comment');
 Router::get('/menu/invitation/{id}', 'MenuController@download_invitation');
 Router::get('/menu/search', 'MenuController@search');
+

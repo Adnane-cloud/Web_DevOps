@@ -580,9 +580,12 @@
                             resultsContainer.innerHTML = '';
                             if(data.length > 0) {
                                 data.forEach(item => {
+                                    const imagePath = item.image_cover
+                                        ? '/' + String(item.image_cover).replace(/^\/+/, '')
+                                        : '/images/default_event.jpg';
                                     const html = `
                                         <a href="/menu/event/${item.id}" class="search-result-item">
-                                            <img src="${item.image_cover}" alt="${item.title}">
+                                            <img src="${imagePath}" alt="${item.title}">
                                             <div class="search-result-content">
                                                 <h6>${item.title}</h6>
                                                 <p>${item.description}</p>

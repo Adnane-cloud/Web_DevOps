@@ -30,7 +30,7 @@ function require_admin() {
 
 function checkEventValidity() {
     // Connect to DB (scope is local to this function)
-    require '../app/config/database.php';
+    require __DIR__ . '/../config/database.php';
     
     // Update query: Close events that have passed and are currently open
     // NOW() checks against the current date and time
@@ -46,7 +46,7 @@ function checkEventValidity() {
 function get_latest_notifications($limit = 3) {
     if (!is_admin()) return [];
     
-    require '../app/config/database.php';
+    require __DIR__ . '/../config/database.php';
     $stmt = $pdo->prepare("SELECT * FROM notifications ORDER BY created_at DESC LIMIT :limit");
     $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
     $stmt->execute();
@@ -56,10 +56,11 @@ function get_latest_notifications($limit = 3) {
 function get_user_notifications($limit = 3) {
     if (!is_logged_in()) return [];
     
-    require '../app/config/database.php';
+    require __DIR__ . '/../config/database.php';
     // Users only see 'new_event' type
     $stmt = $pdo->prepare("SELECT * FROM notifications WHERE type = 'new_event' ORDER BY created_at DESC LIMIT :limit");
     $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+

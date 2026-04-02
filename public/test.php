@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
 $host = 'sql206.infinityfree.com';
 $db_name = 'if0_41563635_database'; // Double-check this!

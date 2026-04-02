@@ -221,4 +221,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php require '../app/views/admin/layout/footer.php'; ?>
+<?php require __DIR__ . '/../admin/layout/footer.php'; ?>
+

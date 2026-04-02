@@ -1,4 +1,4 @@
-<?php require '../app/views/admin/layout/header.php'; ?>
+<?php require __DIR__ . '/../admin/layout/header.php'; ?>
 <link rel="stylesheet" href="/css/home.css">
 
 <ul class="circles">
@@ -97,7 +97,7 @@
                         <h3 class="atv-slide-title"><?= htmlspecialchars($event['titre']) ?></h3>
                         <div class="atv-slide-meta">
                             <a href="/menu/event/<?= $event['id'] ?>" class="atv-slide-btn">View details</a>
-                            <span class="atv-slide-category"><span><?= htmlspecialchars($event['category_name'] ?? 'Event') ?></span> · <?= date('M j', strtotime($event['date_evenement'])) ?></span>
+                            <span class="atv-slide-category"><span><?= htmlspecialchars($event['category_name'] ?? 'Event') ?></span> - <?= date('M j', strtotime($event['date_evenement'])) ?></span>
                         </div>
                     </div>
                 </div>
@@ -116,4 +116,6 @@
 </main>
 <script src="/js/home.js"></script>
 
-<?php require '../app/views/admin/layout/footer.php'; ?>
+<?php require __DIR__ . '/../admin/layout/footer.php'; ?>
+
+

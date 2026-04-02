@@ -6,10 +6,11 @@ class Controller {
         extract($data);
 
         // Check if view exists
-        if (file_exists('../app/views/' . $view . '.php')) {
-            require '../app/views/' . $view . '.php';
+        if (file_exists(__DIR__ . '/../views/' . $view . '.php')) {
+            require __DIR__ . '/../views/' . $view . '.php';
         } else {
             die("View does not exist.");
         }
     }
 }
+

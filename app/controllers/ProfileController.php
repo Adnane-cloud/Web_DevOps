@@ -7,7 +7,7 @@ class ProfileController extends Controller {
             exit;
         }
 
-        require '../app/config/database.php';
+        require __DIR__ . '/../config/database.php';
         $userId = $_SESSION['user_id'];
 
         // Fetch User Info
@@ -58,7 +58,7 @@ class ProfileController extends Controller {
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            require '../app/config/database.php';
+            require __DIR__ . '/../config/database.php';
             $userId = $_SESSION['user_id'];
             
             $name = trim($_POST['name']);
@@ -102,3 +102,4 @@ class ProfileController extends Controller {
         }
     }
 }
+

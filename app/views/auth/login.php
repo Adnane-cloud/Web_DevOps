@@ -1,4 +1,4 @@
-<?php require '../app/views/admin/layout/header.php'; ?>
+<?php require __DIR__ . '/../admin/layout/header.php'; ?>
 <link rel="stylesheet" href="/css/login.css">
 
 <!-- Centered Big Glass Container -->
@@ -70,7 +70,7 @@
                     </form>
                     
                     <div class="mt-4 text-center border-top pt-4 border-secondary-subtle">
-                        <p class="small text-muted mb-0">New here? <a href="register" class="text-decoration-none text-rose">Create Account ></a></p>
+                        <p class="small text-muted mb-0">New here? <a href="/register" class="text-decoration-none text-rose">Create Account ></a></p>
                     </div>
                 </div>
             </div>
@@ -80,4 +80,7 @@
 
 <script src="/js/login.js"></script>
 
-<?php require '../app/views/admin/layout/footer.php'; ?>
+<?php require __DIR__ . '/../admin/layout/footer.php'; ?>
+
+
+

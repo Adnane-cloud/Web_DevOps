@@ -157,4 +157,5 @@ require_once __DIR__ . '/layout/greeting.php';
 }
 </style>
 
-<?php require '../app/views/admin/layout/footer.php'; ?>
+<?php require __DIR__ . '/../admin/layout/footer.php'; ?>
+
