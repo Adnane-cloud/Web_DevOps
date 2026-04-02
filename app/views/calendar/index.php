@@ -1,4 +1,6 @@
-<?php require __DIR__ . '/../admin/layout/header.php'; ?>
+<?php
+die("The server reached this file successfully!"); 
+require __DIR__ . '/../admin/layout/header.php'; ?>
 
 <!-- FullCalendar CSS -->
 <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />

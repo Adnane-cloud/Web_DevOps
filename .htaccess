@@ -1,15 +1,13 @@
-ErrorDocument 500 default
-
-# 1. Set the default file to look for
 DirectoryIndex public/index.php index.php
 
-# 2. Start the "Traffic Cop" engine
 RewriteEngine On
 
-# 3. If someone goes to the main domain, send them to the public folder
-RewriteRule ^$ public/ [L]
+# If it's a real file in public/, serve it
+RewriteCond %{DOCUMENT_ROOT}/public%{REQUEST_URI} -f
+RewriteRule ^(.*)$ public/$1 [L]
 
-# 4. If someone types a specific page, look for it inside the public folder
+# Otherwise, send to index.php
+RewriteRule ^$ public/index.php [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ public/$1 [L]
+RewriteRule ^(.*)$ public/index.php [L]
