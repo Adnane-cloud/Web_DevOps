@@ -92,7 +92,6 @@ class AuthController extends Controller {
 
     public function processRegister() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            var_dump($_POST);
             $name = trim($_POST['name'] ?? '');
             $email = trim($_POST['email'] ?? '');
             $password = $_POST['password'] ?? '';
@@ -160,7 +159,7 @@ class AuthController extends Controller {
         }
     }
     public function logout() {
-        session_start(); // Ensure session is started before destroying
+        if (session_status() === PHP_SESSION_NONE) { session_start(); }
         $_SESSION = array(); // Clear all session variables
 
         if (ini_get("session.use_cookies")) {

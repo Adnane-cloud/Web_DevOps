@@ -1,5 +1,6 @@
-name: Deploy Website
+name: Deploy Website to InfinityFree
 
+# This tells GitHub to run the script every time you 'push' code to the main branch
 on:
   push:
     branches:
@@ -10,13 +11,16 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
+      # 1. This step 'downloads' your code from GitHub onto a temporary cloud computer
       - name: Get latest code
         uses: actions/checkout@v4
 
-      - name: Sync files
+      # 2. This step 'uploads' your code to your server using the keys we saved earlier
+      - name: Sync files to server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          # On InfinityFree, your files MUST go into the htdocs folder
           server-dir: htdocs/

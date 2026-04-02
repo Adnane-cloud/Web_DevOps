@@ -1,13 +1,11 @@
-DirectoryIndex public/index.php index.php
-
 RewriteEngine On
+RewriteBase /
 
-# If it's a real file in public/, serve it
+# 1. If the file exists in the public folder (CSS, JS, Images), serve it directly
 RewriteCond %{DOCUMENT_ROOT}/public%{REQUEST_URI} -f
 RewriteRule ^(.*)$ public/$1 [L]
 
-# Otherwise, send to index.php
-RewriteRule ^$ public/index.php [L]
+# 2. If the file DOES NOT exist, route the request through index.php with the URL path
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ public/index.php [L]
+RewriteRule ^(.*)$ public/index.php?url=$1 [L,QSA]
