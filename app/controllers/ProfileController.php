@@ -3,7 +3,7 @@
 class ProfileController extends Controller {
     public function index() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /python/public/login');
+            header('Location: /login');
             exit;
         }
 
@@ -53,7 +53,7 @@ class ProfileController extends Controller {
 
     public function update() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /python/public/login');
+            header('Location: /login');
             exit;
         }
 
@@ -77,7 +77,7 @@ class ProfileController extends Controller {
             if (!empty($password)) {
                 // Verify Old Password
                 if (empty($oldPassword)) {
-                    header('Location: /python/public/profile?error=' . urlencode('Current password is required to set a new password.'));
+                    header('Location: /profile?error=' . urlencode('Current password is required to set a new password.'));
                     exit;
                 }
 
@@ -86,7 +86,7 @@ class ProfileController extends Controller {
                 $currentHash = $stmt->fetchColumn();
 
                 if (!password_verify($oldPassword, $currentHash) && $oldPassword !== $currentHash) {
-                    header('Location: /python/public/profile?error=' . urlencode('Incorrect current password.'));
+                    header('Location: /profile?error=' . urlencode('Incorrect current password.'));
                     exit;
                 }
 
@@ -97,7 +97,7 @@ class ProfileController extends Controller {
             }
 
             // Redirect back
-            header('Location: /python/public/profile?updated=1');
+            header('Location: /profile?updated=1');
             exit;
         }
     }

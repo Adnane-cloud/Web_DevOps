@@ -1,8 +1,8 @@
 <?php require '../app/views/admin/layout/header.php'; ?>
 
-<link rel="stylesheet" href="/python/public/css/store.css?v=<?= time() ?>">
-<link rel="stylesheet" href="/python/public/css/store_animation.css">
-<link rel="stylesheet" href="/python/public/css/store_carousel.css">
+<link rel="stylesheet" href="/css/store.css?v=<?= time() ?>">
+<link rel="stylesheet" href="/css/store_animation.css">
+<link rel="stylesheet" href="/css/store_carousel.css">
 <!-- Floating Circles Animation Background -->
     <ul class="circles">
         <li></li>
@@ -34,7 +34,7 @@
                         <?php if(!isset($_SESSION['user_id'])): ?>
                             <div class="d-inline-block text-lg-end bg-white bg-opacity-25 p-4 rounded-4 backdrop-blur-md rounded-4 border border-white border-opacity-25">
                                 <h2 class="fw-bold mb-2 text-dark" style="font-size: 22px;">Give something special<br>this Year.</h2>
-                                <a href="/python/public/login" class="btn btn-light rounded-pill px-4 py-2 mt-2 shadow-sm d-inline-flex align-items-center gap-2 transition-transform hover-scale fw-bold text-dark border">
+                                <a href="/login" class="btn btn-light rounded-pill px-4 py-2 mt-2 shadow-sm d-inline-flex align-items-center gap-2 transition-transform hover-scale fw-bold text-dark border">
                                     Sign in Now <i class="bi bi-arrow-right text-dark"></i>
                                 </a>
                             </div>
@@ -63,10 +63,10 @@
                                 <?php 
                                     $imgSrc = $item['image'];
                                     if(strpos($imgSrc, 'uploads/') === 0) {
-                                        $imgSrc = '/python/public/' . $imgSrc;
+                                        $imgSrc = '/' . $imgSrc;
                                     } else {
                                         // Default fallback or legacy images in public/images/
-                                        $imgSrc = '/python/public/images/' . $imgSrc; 
+                                        $imgSrc = '/images/' . $imgSrc; 
                                     }
                                 ?>
                                 <img src="<?= $imgSrc ?>" alt="<?= $item['title'] ?>" class="img-fluid" style="max-height: 100%; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
@@ -109,7 +109,7 @@
                                 <div class="ps-4"></div> <!-- Spacer for starting padding -->
                                 <?php foreach($category['events'] as $event): ?>
                                 <div class="flex-shrink-0 me-4" style="width: 480px; height: 500px;">
-                                    <a href="/python/public/menu/event/<?= $event['id'] ?>" class="text-decoration-none text-dark d-block h-100">
+                                    <a href="/menu/event/<?= $event['id'] ?>" class="text-decoration-none text-dark d-block h-100">
                                         <div class="card h-100 border-0 apple-card overflow-hidden" style="transition: transform 0.2s;">
                                             <div class="card-body p-4 d-flex flex-column pt-5 ps-4 pe-4 position-relative">
                                                 <div class="z-2 text-start position-relative">
@@ -125,9 +125,9 @@
                                                     <?php if(!empty($event['image_cover'])): 
                                                         $evtImg = $event['image_cover'];
                                                         if(strpos($evtImg, 'uploads/') === 0) {
-                                                            $evtImg = '/python/public/' . $evtImg;
+                                                            $evtImg = '/' . $evtImg;
                                                         } else {
-                                                            $evtImg = '/python/public/images/' . $evtImg;
+                                                            $evtImg = '/images/' . $evtImg;
                                                         }
                                                     ?>
                                                     <img src="<?= $evtImg ?>" alt="<?= htmlspecialchars($event['title']) ?>" class="card-image" style="display: block;">
@@ -147,6 +147,6 @@
             <?php endif; ?>
         </section>
 
-<script src="/python/public/js/carousel.js?v=<?= time() ?>"></script>
-<script src="/python/public/js/store_filter.js?v=<?= time() ?>"></script>
+<script src="/js/carousel.js?v=<?= time() ?>"></script>
+<script src="/js/store_filter.js?v=<?= time() ?>"></script>
 <?php require '../app/views/admin/layout/footer.php'; ?>

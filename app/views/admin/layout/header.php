@@ -6,8 +6,8 @@
     <title><?= $title ?? 'Admin Dashboard' ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/python/public/css/admin.css">
-    <link rel="stylesheet" href="/python/public/css/store.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/store.css">
 </head>
 <body class="admin-body">
 
@@ -29,15 +29,15 @@
     <nav class="floating-glass-header">
         <div class="glass-pill px-5">
             <!-- Left Group -->
-            <a href="/python/public/" class="nav-link" title="Go Home">
+            <a href="/" class="nav-link" title="Go Home">
                 <i class="bi bi-house-fill"></i>
             </a>
             
-            <a href="/python/public/menu" class="nav-link" title="Apps">
+            <a href="/menu" class="nav-link" title="Apps">
                 <i class="bi bi-grid"></i>
             </a>
 
-            <a href="/python/public/calendar" class="nav-link" title="Calendar">
+            <a href="/calendar" class="nav-link" title="Calendar">
                 <i class="bi bi-calendar"></i>
             </a>
 
@@ -45,24 +45,24 @@
 
             <!-- Center Group (Admin Features) - Only visible to Admins -->
             <?php if(isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
-            <a href="/python/public/admin" class="nav-link <?= $_SERVER['REQUEST_URI'] == '/python/public/admin' ? 'active-glow' : '' ?>" title="Dashboard">
+            <a href="/admin" class="nav-link <?= $_SERVER['REQUEST_URI'] == '/admin' ? 'active-glow' : '' ?>" title="Dashboard">
                 <i class="bi bi-grid-1x2-fill"></i>
             </a>
 
-            <a href="/python/public/admin/events" class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/admin/events') !== false ? 'active-glow' : '' ?>" title="Manage Events">
+            <a href="/admin/events" class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/admin/events') !== false ? 'active-glow' : '' ?>" title="Manage Events">
                 <i class="bi bi-calendar-event"></i>
             </a>
 
-            <a href="/python/public/admin/categories" class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/admin/categories') !== false ? 'active-glow' : '' ?>" title="Categories">
+            <a href="/admin/categories" class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/admin/categories') !== false ? 'active-glow' : '' ?>" title="Categories">
                 <i class="bi bi-tags"></i>
             </a>
 
-            <a href="/python/public/admin/attendance" class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/admin/attendance') !== false ? 'active-glow' : '' ?>" title="Attendance">
+            <a href="/admin/attendance" class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/admin/attendance') !== false ? 'active-glow' : '' ?>" title="Attendance">
                 <i class="bi bi-person-check"></i>
             </a>
             <?php endif; ?>
             <?php if(isset($_SESSION['user_id']) && $_SESSION['user_role'] === 'user'): ?>
-                <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/inscriptions') !== false ? 'active-glow' : '' ?>" href="/python/public/inscriptions" title="Inscriptions">
+                <a class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/inscriptions') !== false ? 'active-glow' : '' ?>" href="/inscriptions" title="Inscriptions">
                     <i class="bi bi-ticket-perforated"></i>
                 </a>
             <?php endif; ?>
@@ -84,16 +84,16 @@
                 <?php endif; ?>
 
                 <!-- Logged In Profile -->
-                <a href="/python/public/profile" class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/profile') !== false ? 'active-glow' : '' ?>" title="Profile">
+                <a href="/profile" class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/profile') !== false ? 'active-glow' : '' ?>" title="Profile">
                     <i class="bi bi-person-circle"></i>
                 </a>
                 
-                <a href="/python/public/logout" class="nav-link text-danger" title="Logout">
+                <a href="/logout" class="nav-link text-danger" title="Logout">
                     <i class="bi bi-box-arrow-right"></i>
                 </a>
             <?php else: ?>
                 <!-- Guest -> Link to Login -->
-                <a href="/python/public/login" class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/login') !== false ? 'active-glow' : '' ?>" title="Sign In">
+                <a href="/login" class="nav-link <?= strpos($_SERVER['REQUEST_URI'], '/login') !== false ? 'active-glow' : '' ?>" title="Sign In">
                     <i class="bi bi-person"></i>
                 </a>
             <?php endif; ?>
@@ -364,9 +364,9 @@
             <div class="quick-links" id="quickLinks">
                 <p class="section-title">Quick Links</p>
                 <ul>
-                    <li><a href="/python/public/menu">Browse All Events</a></li>
-                    <li><a href="/python/public/admin/events">Manage Events</a></li>
-                    <li><a href="/python/public/admin/users">Manage Users</a></li>
+                    <li><a href="/menu">Browse All Events</a></li>
+                    <li><a href="/admin/events">Manage Events</a></li>
+                    <li><a href="/admin/users">Manage Users</a></li>
                 </ul>
             </div>
             <div id="searchResults" class="search-results d-none">
@@ -574,14 +574,14 @@
 
                 dobounceTimer = setTimeout(() => {
                     // Using the same search endpoint for now, or could create an admin search
-                    fetch('/python/public/menu/search?q=' + encodeURIComponent(query))
+                    fetch('/menu/search?q=' + encodeURIComponent(query))
                         .then(res => res.json())
                         .then(data => {
                             resultsContainer.innerHTML = '';
                             if(data.length > 0) {
                                 data.forEach(item => {
                                     const html = `
-                                        <a href="/python/public/menu/event/${item.id}" class="search-result-item">
+                                        <a href="/menu/event/${item.id}" class="search-result-item">
                                             <img src="${item.image_cover}" alt="${item.title}">
                                             <div class="search-result-content">
                                                 <h6>${item.title}</h6>

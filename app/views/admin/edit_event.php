@@ -20,12 +20,12 @@ require_once __DIR__ . '/layout/header.php';
     <div class="glass-card mx-auto" style="max-width: 800px;">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="h4 fw-bold mb-0 text-dark"><i class="bi bi-pencil-square me-2 text-primary"></i>Edit Event</h2>
-            <a href="/python/public/admin/events" class="btn btn-glass-secondary rounded-pill px-4">
+            <a href="/admin/events" class="btn btn-glass-secondary rounded-pill px-4">
                 Cancel
             </a>
         </div>
 
-        <form method="POST" action="/python/public/admin/events/update" enctype="multipart/form-data">
+        <form method="POST" action="/admin/events/update" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $data['event']['id'] ?>">
 
             <div class="mb-4">
@@ -72,7 +72,7 @@ require_once __DIR__ . '/layout/header.php';
                     <input type="file" name="image" class="form-control form-glass mb-3">
                     <?php if(!empty($data['event']['image_cover'])): ?>
                         <div class="d-flex align-items-center bg-white rounded-3 p-2 shadow-sm" style="width: fit-content;">
-                            <img src="/python/public/<?= $data['event']['image_cover'] ?>" alt="Cover" class="rounded-2" style="height: 60px; width: 60px; object-fit: cover;">
+                            <img src="/<?= $data['event']['image_cover'] ?>" alt="Cover" class="rounded-2" style="height: 60px; width: 60px; object-fit: cover;">
                             <span class="ms-3 small text-secondary">Current Image</span>
                         </div>
                     <?php endif; ?>

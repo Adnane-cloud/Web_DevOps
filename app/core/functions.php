@@ -16,14 +16,14 @@ function is_admin() {
 
 function require_login() {
     if (!is_logged_in()) {
-        header('Location: /python/public/login');
+        header('Location: /login');
         exit();
     }
 }
 
 function require_admin() {
     if (!is_admin()) {
-        header('Location: /python/public/menu');
+        header('Location: /menu');
         exit();
     }
 }

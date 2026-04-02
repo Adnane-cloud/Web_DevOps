@@ -2,7 +2,7 @@
 
 <!-- FullCalendar CSS -->
 <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
-<link rel="stylesheet" href="/python/public/css/calender.css">
+<link rel="stylesheet" href="/css/calender.css">
 
 <!-- Floating Circles Animation Background -->
 <ul class="circles">
@@ -25,7 +25,7 @@
             <p class="text-dark mb-0">Overview of all upcoming activities.</p>
         </div>
         <?php if(isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
-            <a href="/python/public/admin/events" class="btn btn-dark rounded-pill px-4">Manage Events</a>
+            <a href="/admin/events" class="btn btn-dark rounded-pill px-4">Manage Events</a>
         <?php endif; ?>
     </div>
 
@@ -110,6 +110,6 @@
     </div>
 
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
-<script src='/python/public/js/Calender.js'></script>
+<script src='/js/Calender.js'></script>
 
 

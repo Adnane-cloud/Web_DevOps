@@ -45,7 +45,7 @@ require_once __DIR__ . '/layout/greeting.php';
         <div class="d-flex justify-content-between align-items-center mb-4 px-4 pt-4 w-100">
             <h2 class="h5 fw-bold mb-0">Attendance Lists</h2>
             
-            <form method="GET" action="/python/public/admin/attendance" class="d-flex gap-2">
+            <form method="GET" action="/admin/attendance" class="d-flex gap-2">
                 <!-- Event Filter -->
                 <select name="event_id" class="form-select rounded-pill border-0 ps-3" 
                         style="background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(5px); width: 180px; font-size: 0.9rem;"
@@ -69,7 +69,7 @@ require_once __DIR__ . '/layout/greeting.php';
                 </div>
                 
                 <!-- Export -->
-                <a href="/python/public/admin/attendance/export?event_id=<?= $data['selected_event'] ?>" class="btn btn-glass-secondary rounded-pill d-flex align-items-center justify-content-center" title="Export CSV">
+                <a href="/admin/attendance/export?event_id=<?= $data['selected_event'] ?>" class="btn btn-glass-secondary rounded-pill d-flex align-items-center justify-content-center" title="Export CSV">
                     <i class="bi bi-download"></i>
                 </a>
             </form>
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
         nameEl.textContent = 'Loading...';
         
         // Fetch Data
-        fetch('/python/public/admin/user_details?id=' + userId)
+        fetch('/admin/user_details?id=' + userId)
             .then(response => response.json())
             .then(data => {
                 if (data.error) {

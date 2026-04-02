@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Fetch Events
         events: function (fetchInfo, successCallback, failureCallback) {
-            fetch('/python/public/calendar/api/events')
+            fetch('/calendar/api/events')
                 .then(response => response.json())
                 .then(data => {
                     allEvents = data;
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Hook into fetch success
     const originalFetch = calendar.getOption('events');
     calendar.setOption('events', function (fetchInfo, successCallback, failureCallback) {
-        fetch('/python/public/calendar/api/events')
+        fetch('/calendar/api/events')
             .then(res => res.json())
             .then(data => {
                 allEvents = data;

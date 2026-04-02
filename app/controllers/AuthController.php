@@ -47,18 +47,18 @@ class AuthController extends Controller {
 
                         if ($_SESSION['user_role'] === 'admin') {
                             if (!headers_sent()) {
-                                header('Location: /python/public/admin');
+                                header('Location: /admin');
                                 exit;
                             } else {
-                                echo '<script>window.location.href="/python/public/admin";</script>';
+                                echo '<script>window.location.href="/admin";</script>';
                                 exit;
                             }
                         } else {
                             if (!headers_sent()) {
-                                header('Location: /python/public/menu');
+                                header('Location: /menu');
                                 exit;
                             } else {
-                                echo '<script>window.location.href="/python/public/menu";</script>';
+                                echo '<script>window.location.href="/menu";</script>';
                                 exit;
                             }
                         }
@@ -78,7 +78,7 @@ class AuthController extends Controller {
         
         } else {
             // Redirect if accessed directly via GET
-            header('Location: /python/public/login');
+            header('Location: /login');
             exit;
         }
     }
@@ -140,10 +140,10 @@ class AuthController extends Controller {
                 ])) {
                     // Success - Redirect to Login
                     if (!headers_sent()) {
-                        header('Location: /python/public/login');
+                        header('Location: /login');
                         exit;
                     } else {
-                        echo '<script>window.location.href="/python/public/login";</script>';
+                        echo '<script>window.location.href="/login";</script>';
                         exit;
                     }
                 } else {
@@ -155,7 +155,7 @@ class AuthController extends Controller {
                 $this->view('auth/register', $data);
             }
         } else {
-            header('Location: /python/public/register');
+            header('Location: /register');
             exit;
         }
     }
@@ -173,7 +173,7 @@ class AuthController extends Controller {
 
         session_destroy();
         
-        header('Location: /python/public/login');
+        header('Location: /login');
         exit;
     }
 }

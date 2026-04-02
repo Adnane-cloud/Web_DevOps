@@ -1,5 +1,5 @@
 <?php require '../app/views/admin/layout/header.php'; ?>
-<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="/css/home.css">
 
 <ul class="circles">
     <li></li>
@@ -46,9 +46,9 @@
             foreach($data['categories'] as $cat): 
                 $catImg = !empty($cat['image']) ? $cat['image'] : 'default_category.jpg';
                 if(strpos($catImg, 'uploads/') === 0) {
-                    $catImg = '/python/public/' . $catImg;
+                    $catImg = '/' . $catImg;
                 } else {
-                    $catImg = '/python/public/images/' . $catImg;
+                    $catImg = '/images/' . $catImg;
                 }
                 $tagline = $taglines[$i % count($taglines)];
             ?>
@@ -56,8 +56,8 @@
                 <h2 class="category-tile-title"><?= htmlspecialchars($cat['nom']) ?></h2>
                 <p class="category-tile-tagline"><?= $tagline ?></p>
                 <div class="category-tile-buttons">
-                    <a href="/python/public/menu#cat-<?= $cat['id'] ?>" class="cat-btn-primary">Learn more</a>
-                    <a href="/python/public/menu" class="cat-btn-secondary">Browse</a>
+                    <a href="/menu#cat-<?= $cat['id'] ?>" class="cat-btn-primary">Learn more</a>
+                    <a href="/menu" class="cat-btn-secondary">Browse</a>
                 </div>
                 <div class="category-tile-image">
                     <img src="<?= $catImg ?>" alt="<?= htmlspecialchars($cat['nom']) ?>">
@@ -86,9 +86,9 @@
                 foreach($data['events'] as $event): 
                     $evtImg = !empty($event['image_cover']) ? $event['image_cover'] : 'workshop.jpg';
                     if(strpos($evtImg, 'uploads/') === 0) {
-                        $evtImg = '/python/public/' . $evtImg;
+                        $evtImg = '/' . $evtImg;
                     } else {
-                        $evtImg = '/python/public/images/' . $evtImg;
+                        $evtImg = '/images/' . $evtImg;
                     }
                 ?>
                 <div class="atv-slide <?= $idx === 0 ? 'active' : '' ?>" data-index="<?= $idx ?>" onclick="atvGoTo(<?= $idx ?>)">
@@ -96,7 +96,7 @@
                     <div class="atv-slide-overlay">
                         <h3 class="atv-slide-title"><?= htmlspecialchars($event['titre']) ?></h3>
                         <div class="atv-slide-meta">
-                            <a href="/python/public/menu/event/<?= $event['id'] ?>" class="atv-slide-btn">View details</a>
+                            <a href="/menu/event/<?= $event['id'] ?>" class="atv-slide-btn">View details</a>
                             <span class="atv-slide-category"><span><?= htmlspecialchars($event['category_name'] ?? 'Event') ?></span> · <?= date('M j', strtotime($event['date_evenement'])) ?></span>
                         </div>
                     </div>
@@ -114,6 +114,6 @@
     </section>
   
 </main>
-<script src="js/home.js"></script>
+<script src="/js/home.js"></script>
 
 <?php require '../app/views/admin/layout/footer.php'; ?>

@@ -1,5 +1,5 @@
 <?php require '../app/views/admin/layout/header.php'; ?>
-<link rel="stylesheet" href="/python/public/css/details.css">
+<link rel="stylesheet" href="/css/details.css">
 
 
 <?php 
@@ -7,12 +7,12 @@
     $imgSrc = $event['image_cover'];
     if(!empty($imgSrc)) {
          if(strpos($imgSrc, 'uploads/') === 0) {
-            $imgSrc = '/python/public/' . $imgSrc;
+            $imgSrc = '/' . $imgSrc;
         } else {
-            $imgSrc = '/python/public/images/' . $imgSrc;
+            $imgSrc = '/images' . $imgSrc;
         }
     } else {
-        $imgSrc = '/python/public/images/default_event.jpg'; 
+        $imgSrc = 'images/default_event.jpg'; 
     }
 ?>
 
@@ -44,7 +44,7 @@
                 <div class="content-card p-4 mt-3" id="reviews" style="height: auto;">
                      <h4 class="fw-bold mb-3"><i class="bi bi-chat-left-quote me-2"></i> Reviews & Comments</h4>
                      <!-- Add Comment Form -->
-                    <form action="/python/public/menu/comment" method="POST" class="mb-4">
+                    <form action="menu/comment" method="POST" class="mb-4">
                         <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
                         
                         <div class="mb-2">
@@ -122,11 +122,11 @@
                             <h6 class="fw-bold text-success">You are registered!</h6>
                         </div>
 
-                        <a href="/python/public/menu/invitation/<?= $event['id'] ?>" class="btn btn-dark w-100 py-3 rounded-pill fw-bold mb-3">
+                        <a href="menu/invitation/<?= $event['id'] ?>" class="btn btn-dark w-100 py-3 rounded-pill fw-bold mb-3">
                             <i class="bi bi-download me-2"></i> Download Invitation
                         </a>
                         
-                        <form action="/python/public/menu/cancel-enroll" method="POST" onsubmit="return confirm('Are you sure you want to cancel your registration?');">
+                        <form action="menu/cancel-enroll" method="POST" onsubmit="return confirm('Are you sure you want to cancel your registration?');">
                             <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
                             <button type="submit" class="btn btn-outline-danger w-100 py-3 rounded-pill fw-bold">
                                 Cancel Inscription
@@ -137,7 +137,7 @@
                             Event Ended
                         </button>
                     <?php else: ?>
-                        <form action="/python/public/menu/enroll" method="POST">
+                        <form action="menu/enroll" method="POST">
                             <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
                             <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow-sm mb-3">
                                 Enroll Now

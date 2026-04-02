@@ -51,7 +51,7 @@ class CalendarController extends Controller {
                 'start' => $event['start'],
                 'backgroundColor' => $color,
                 'borderColor' => $color,
-                'url' => '/python/public/store/event/' . $event['id'],
+                'url' => '/menu/event/' . $event['id'],
                 'categoryId' => $catId
             ];
         }

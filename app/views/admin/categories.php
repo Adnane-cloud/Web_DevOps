@@ -8,7 +8,7 @@ require_once __DIR__ . '/layout/greeting.php';
         <div class="col-md-4">
             <div class="pastel-glass-card mb-4" style="padding: 1.5rem;">
                 <h3 class="h5 fw-bold mb-4">Add Category</h3>
-                <form method="POST" action="/python/public/admin/categories/add" enctype="multipart/form-data">
+                <form method="POST" action="/admin/categories/add" enctype="multipart/form-data">
                     <?php if(isset($_GET['error']) && $_GET['error'] == 'exists'): ?>
                         <div class="alert alert-danger small py-2 mb-3">Category already exists</div>
                     <?php endif; ?>
@@ -53,7 +53,7 @@ require_once __DIR__ . '/layout/greeting.php';
                                 <td class="fw-medium">
                                     <div class="d-flex align-items-center">
                                         <?php if(!empty($cat['image']) && file_exists('../public/' . $cat['image'])): ?>
-                                            <img src="/python/public/<?= $cat['image'] ?>" class="rounded-3 me-3" width="40" height="40" style="object-fit:cover;">
+                                            <img src="/<?= $cat['image'] ?>" class="rounded-3 me-3" width="40" height="40" style="object-fit:cover;">
                                         <?php else: ?>
                                             <span class="d-inline-block rounded-3 me-3" style="width: 40px; height: 40px; background-color: #f5f5f7;"></span>
                                         <?php endif; ?>
@@ -62,8 +62,8 @@ require_once __DIR__ . '/layout/greeting.php';
                                 <td class="fw-medium"><?= htmlspecialchars($cat['nom']) ?></td>
                                 <td><span class="badge rounded-pill bg-light text-dark border"><?= $cat['event_count'] ?> events</span></td>
                                 <td class="text-end pe-4">
-                                    <a href="/python/public/admin/categories/edit?id=<?= $cat['id'] ?>" class="btn-table-action me-1"><i class="bi bi-pencil"></i></a>
-                                    <form action="/python/public/admin/categories/delete" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this category?');">
+                                    <a href="/admin/categories/edit?id=<?= $cat['id'] ?>" class="btn-table-action me-1"><i class="bi bi-pencil"></i></a>
+                                    <form action="/admin/categories/delete" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this category?');">
                                         <input type="hidden" name="id" value="<?= $cat['id'] ?>">
                                         <button type="submit" class="btn-table-action text-danger border-0"><i class="bi bi-trash"></i></button>
                                     </form>

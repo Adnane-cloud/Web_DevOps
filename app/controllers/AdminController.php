@@ -155,7 +155,7 @@ class AdminController extends Controller {
             $notifStmt = $pdo->prepare("INSERT INTO notifications (message, type) VALUES (:message, 'new_event')");
             $notifStmt->execute(['message' => $msg]);
 
-            header('Location: /python/public/admin/events'); // Should probably use a router helper
+            header('Location: /admin/events'); // Should probably use a router helper
             exit;
         }
     }   
@@ -169,7 +169,7 @@ class AdminController extends Controller {
             $stmt = $pdo->prepare("DELETE FROM evenements WHERE id = :id");
             $stmt->execute(['id' => $id]);
             
-            header('Location: /python/public/admin/events');
+            header('Location: /admin/events');
             exit;
         }
     }
@@ -183,7 +183,7 @@ class AdminController extends Controller {
         $event = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$event) {
-            header('Location: /python/public/admin/events');
+            header('Location: /admin/events');
             exit;
         }
 
@@ -251,7 +251,7 @@ class AdminController extends Controller {
             $stmt = $pdo->prepare($sql);
             $stmt->execute($params);
 
-            header('Location: /python/public/admin/events');
+            header('Location: /admin/events');
             exit;
         }
     }
@@ -285,7 +285,7 @@ class AdminController extends Controller {
 
             if (empty($name)) {
                 // Should handle error, but for now redirect back
-                header('Location: /python/public/admin/categories');
+                header('Location: /admin/categories');
                 exit;
             }
 
@@ -293,7 +293,7 @@ class AdminController extends Controller {
             $stmt = $pdo->prepare("SELECT id FROM categories WHERE nom = :nom");
             $stmt->execute(['nom' => $name]);
             if ($stmt->fetch()) {
-                header('Location: /python/public/admin/categories?error=exists');
+                header('Location: /admin/categories?error=exists');
                 exit;
             }
 
@@ -313,7 +313,7 @@ class AdminController extends Controller {
             $stmt = $pdo->prepare("INSERT INTO categories (nom, image) VALUES (:nom, :image)");
             $stmt->execute(['nom' => $name, 'image' => $image]);
 
-            header('Location: /python/public/admin/categories');
+            header('Location: /admin/categories');
             exit;
         }
     }
@@ -330,11 +330,11 @@ class AdminController extends Controller {
                 $stmt->execute(['id' => $id]);
             } catch (PDOException $e) {
                 // If deletion fails (e.g. foreign key constraint), redirect with error
-                 header('Location: /python/public/admin/categories?error=used');
+                 header('Location: /admin/categories?error=used');
                  exit;
             }
             
-            header('Location: /python/public/admin/categories');
+            header('Location: /admin/categories');
             exit;
         }
     }
@@ -348,7 +348,7 @@ class AdminController extends Controller {
         $category = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$category) {
-            header('Location: /python/public/admin/categories');
+            header('Location: /admin/categories');
             exit;
         }
 
@@ -394,14 +394,14 @@ class AdminController extends Controller {
             
             try {
                 $stmt->execute($params);
-                header('Location: /python/public/admin/categories?success=updated');
+                header('Location: /admin/categories?success=updated');
                 exit;
             } catch (PDOException $e) {
                 if ($e->getCode() == 23000) { 
-                     header('Location: /python/public/admin/categories/edit?id=' . $id . '&error=exists');
+                     header('Location: /admin/categories/edit?id=' . $id . '&error=exists');
                      exit;
                 }
-                header('Location: /python/public/admin/categories/edit?id=' . $id . '&error=unknown');
+                header('Location: /admin/categories/edit?id=' . $id . '&error=unknown');
                 exit;
             }
         }
@@ -479,7 +479,7 @@ class AdminController extends Controller {
     }
     public function export_events() {
         if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] !== 'admin') {
-            header('Location: /python/public/login');
+            header('Location: /login');
             exit;
         }
 

@@ -1,5 +1,5 @@
 <?php require '../app/views/admin/layout/header.php'; ?>
-<link rel="stylesheet" href="/python/public/css/register.css">
+<link rel="stylesheet" href="/css/register.css">
 
 <ul class="circles">
     <li></li>
@@ -20,7 +20,7 @@
             <p class="text-secondary small">One Eventium ID is all you need to access all Eventium services.</p>
         </div>
 
-        <form method="POST" action="/python/public/register">
+        <form method="POST" action="/register">
             <?php if(isset($error)): ?>
                 <div class="alert alert-danger small mb-4 rounded-3">
                     <i class="bi bi-exclamation-circle-fill me-2"></i> <?= $error ?>
@@ -52,7 +52,7 @@
         </form>
         
         <div class="text-center mt-4 border-top pt-4 border-black-10">
-            <a href="login" class="text-decoration-none small text-rose">Already have an account? Sign in ></a>
+            <a href="/login" class="text-decoration-none small text-rose">Already have an account? Sign in ></a>
         </div>
     </div>
 </div>

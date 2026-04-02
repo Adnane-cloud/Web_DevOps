@@ -1,5 +1,5 @@
 <?php require '../app/views/admin/layout/header.php'; ?>
-<link rel="stylesheet" href="/python/public/css/login.css">
+<link rel="stylesheet" href="/css/login.css">
 
 <!-- Centered Big Glass Container -->
 <div class="d-flex min-vh-100 align-items-center justify-content-center py-5">
@@ -36,7 +36,7 @@
                         <h2 class="h6 fw-medium text-secondary">Continue to Eventium</h2>
                     </div>
 
-                    <form id="EventiumAuthForm" method="POST" action="/python/public/login">
+                    <form id="EventiumAuthForm" method="POST" action="/login">
                         
                         <?php if(isset($error)): ?>
                             <div class="alert alert-danger small mb-4 rounded-3 text-start">
@@ -78,6 +78,6 @@
     </div>
 </div>
 
-<script src="/python/public/js/login.js"></script>
+<script src="/js/login.js"></script>
 
 <?php require '../app/views/admin/layout/footer.php'; ?>

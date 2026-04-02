@@ -1,5 +1,5 @@
 <?php require '../app/views/admin/layout/header.php'; ?>
-<link rel="stylesheet" href="../public/css/profile.css">
+<link rel="stylesheet" href="/css/profile.css">
 
 <ul class="circles">
     <li></li>
@@ -60,7 +60,7 @@
 
                 <!-- Sign Out Button (Sidebar) -->
                 <div class="mt-4">
-                     <a href="/python/public/logout" class="btn w-100 btn-glass-danger rounded-pill fw-bold py-2">
+                     <a href="logout" class="btn w-100 btn-glass-danger rounded-pill fw-bold py-2">
                         <i class="bi bi-box-arrow-right me-2"></i> Sign Out
                     </a>
                 </div>
@@ -89,7 +89,7 @@
                 </div>
                 <?php endif; ?>
 
-                <form action="/python/public/profile/update" method="POST">
+                <form action="profile/update" method="POST">
                     <div class="mb-5">
                         <label class="form-label text-secondary small fw-bold text-uppercase ms-1 mb-3">Personal Information</label>
                         <div class="row g-3">

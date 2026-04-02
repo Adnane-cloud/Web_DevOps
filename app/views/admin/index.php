@@ -3,7 +3,7 @@ require_once __DIR__ . '/layout/header.php';
 require_once __DIR__ . '/layout/greeting.php';
 ?>
 
-<link rel="stylesheet" href="/python/public/css/dashboard.css">
+<link rel="stylesheet" href="/css/dashboard.css">
 <!-- Stats Overview -->
 <ul class="circles">
     <li></li>
@@ -142,7 +142,7 @@ require_once __DIR__ . '/layout/greeting.php';
                         <div class="d-flex align-items-center mb-3 p-3 rounded-4" style="background: rgba(255, 255, 255, 0.4); border: 1px solid rgba(255, 255, 255, 0.5);">
                             <div class="flex-shrink-0 me-3">
                                 <?php if (!empty($log['user_image']) && file_exists('public/' . $log['user_image'])): ?>
-                                    <img src="/python/public/<?= htmlspecialchars($log['user_image']) ?>" class="rounded-circle shadow-sm" width="46" height="46" style="object-fit: cover;">
+                                    <img src="/<?= htmlspecialchars($log['user_image']) ?>" class="rounded-circle shadow-sm" width="46" height="46" style="object-fit: cover;">
                                 <?php else: ?>
                                     <div class="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center text-primary fw-bold" style="width: 46px; height: 46px;">
                                         <?= strtoupper(substr($log['user_name'], 0, 1)) ?>
@@ -180,7 +180,7 @@ require_once __DIR__ . '/layout/greeting.php';
             <div class="pastel-glass-card h-auto text-start card-padding-remove" style="padding-top: 0 !important; padding-left: 0; padding-right: 0; align-items: stretch !important;">
                 <div class="d-flex justify-content-between align-items-center mb-4 px-4 pt-4 w-100">
                     <h3 class="h5 fw-bold mb-0">Recent Events</h3>
-                    <a href="/python/public/admin/events" class="btn btn-sm btn-glass-secondary rounded-pill px-3">View All</a>
+                    <a href="/admin/events" class="btn btn-sm btn-glass-secondary rounded-pill px-3">View All</a>
                 </div>
                  <div class="table-responsive w-100">
                     <table class="table-apple mb-0 w-100">
@@ -279,13 +279,13 @@ require_once __DIR__ . '/layout/greeting.php';
             <div class="pastel-glass-card" style="justify-content: flex-start !important; padding: 20px !important; height: auto !important;">
                 <h3 class="h5 fw-bold mb-3">Quick Actions</h3>
                 <div class="d-grid gap-3 w-100">
-                    <a href="/python/public/admin/events" class="btn btn-glass-primary w-100 fw-medium fs-6 rounded-3 d-flex align-items-center justify-content-center py-2">
+                    <a href="/admin/events" class="btn btn-glass-primary w-100 fw-medium fs-6 rounded-3 d-flex align-items-center justify-content-center py-2">
                         <i class="bi bi-plus-lg me-2"></i> Create New Event
                     </a>
-                    <a href="/python/public/admin/export/events" class="btn btn-glass-secondary w-100 fw-medium fs-6 rounded-3 d-flex align-items-center justify-content-center py-2">
+                    <a href="/admin/export/events" class="btn btn-glass-secondary w-100 fw-medium fs-6 rounded-3 d-flex align-items-center justify-content-center py-2">
                         <i class="bi bi-file-earmark-text me-2"></i> Export Report
                     </a>
-                    <a href="/python/public/profile" class="btn btn-glass-secondary w-100 fw-medium fs-6 rounded-3 d-flex align-items-center justify-content-center py-2">
+                    <a href="/profile" class="btn btn-glass-secondary w-100 fw-medium fs-6 rounded-3 d-flex align-items-center justify-content-center py-2">
                         <i class="bi bi-gear me-2"></i> Settings
                     </a>
                 </div>

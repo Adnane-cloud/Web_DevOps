@@ -1,6 +1,6 @@
 <?php require '../app/views/admin/layout/header.php'; ?>
 
-<link rel="stylesheet" href="/python/public/css/inscription.css">
+<link rel="stylesheet" href="/css/inscription.css">
 
 <!-- Greeting Widget (User) -->
 <header class="d-flex justify-content-center align-items-center mb-5 pt-4" style="margin-top: 120px;">
@@ -66,13 +66,13 @@
                     <i class="bi bi-calendar-x display-1 text-secondary opacity-50 mb-3"></i>
                     <h3 class="fw-bold text-dark">No inscriptions yet.</h3>
                     <p class="text-secondary mb-4">You haven't registered for any events.</p>
-                    <a href="/python/public/menu" class="btn btn-primary rounded-pill px-4 py-2 bg-dark border-0">Browse Events</a>
+                    <a href="/menu" class="btn btn-primary rounded-pill px-4 py-2 bg-dark border-0">Browse Events</a>
                 </div>
             </div>
         <?php else: ?>
             <?php foreach($data['events'] as $event): ?>
             <div class="col-md-6 col-lg-4">
-                <a href="/python/public/menu/event/<?= $event['id'] ?>" class="text-decoration-none text-dark d-block h-100">
+                <a href="/menu/event/<?= $event['id'] ?>" class="text-decoration-none text-dark d-block h-100">
                     <!-- Glassmorphism Card -->
                     <div class="card h-100 border-0 glass-event-card overflow-hidden shadow-sm hover-card">
                         <div class="card-body p-4 d-flex flex-column pt-4 ps-4 pe-4 position-relative">
@@ -99,9 +99,9 @@
                                 <?php if(!empty($event['image_cover'])): 
                                     $evtImg = $event['image_cover'];
                                     if(strpos($evtImg, 'uploads/') === 0) {
-                                        $evtImg = '/python/public/' . $evtImg;
+                                        $evtImg = '/' . $evtImg;
                                     } else {
-                                        $evtImg = '/python/public/images/' . $evtImg;
+                                        $evtImg = '/images/' . $evtImg;
                                     }
                                 ?>
                                 <img src="<?= $evtImg ?>" alt="<?= htmlspecialchars($event['titre']) ?>" class="img-fluid rounded-4 mb-2 shadow-sm" style="width: 100%; height: 200px; object-fit: cover;">
@@ -133,5 +133,5 @@
 </style>
 
 
-<script src="/python/public/js/admin.js"></script>
+<script src="/js/admin.js"></script>
 <?php require '../app/views/admin/layout/footer.php'; ?>

@@ -70,7 +70,7 @@ class MenuController extends Controller {
 
     public function inscriptions() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /python/public/login');
+            header('Location: /login');
             exit;
         }
 
@@ -98,7 +98,7 @@ class MenuController extends Controller {
     
     public function details($id) {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /python/public/login');
+            header('Location: /login');
             exit;
         }
 
@@ -111,7 +111,7 @@ class MenuController extends Controller {
         $event = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$event) {
-            header('Location: /python/public/menu');
+            header('Location: /menu');
             exit;
         }
 
@@ -146,7 +146,7 @@ class MenuController extends Controller {
 
     public function enroll() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /python/public/login');
+            header('Location: /login');
             exit;
         }
 
@@ -186,14 +186,14 @@ class MenuController extends Controller {
             }
             
             // Redirect to Inscriptions page as requested ("store the result in inscription column" -> imply showing it)
-            header('Location: /python/public/inscriptions');
+            header('Location: /inscriptions');
             exit;
         }
     }
 
     public function cancel_enroll() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /python/public/login');
+            header('Location: /login');
             exit;
         }
 
@@ -207,14 +207,14 @@ class MenuController extends Controller {
             $stmt->execute(['userId' => $userId, 'eventId' => $eventId]);
             
             // Redirect back to details to show 'Enroll Now' state
-            header('Location: /python/public/menu/event/' . $eventId);
+            header('Location: /menu/event/' . $eventId);
             exit;
         }
     }
 
     public function add_comment() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /python/public/login');
+            header('Location: /login');
             exit;
         }
 
@@ -241,14 +241,14 @@ class MenuController extends Controller {
                 ]);
             }
             
-            header('Location: /python/public/menu/event/' . $eventId . '#reviews');
+            header('Location: /menu/event/' . $eventId . '#reviews');
             exit;
         }
     }
 
     public function download_invitation($eventId) {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /python/public/login');
+            header('Location: /login');
             exit;
         }
 
@@ -268,7 +268,7 @@ class MenuController extends Controller {
         $inscription = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$inscription) {
-            header('Location: /python/public/menu');
+            header('Location: /menu');
             exit;
         }
 
@@ -381,9 +381,9 @@ class MenuController extends Controller {
         // Format image paths
         foreach ($results as &$row) {
              if(strpos($row['image_cover'], 'uploads/') === 0) {
-                $row['image_cover'] = '/python/public/' . $row['image_cover'];
+                $row['image_cover'] = '/' . $row['image_cover'];
             } else {
-                $row['image_cover'] = '/python/public/images/' . $row['image_cover'];
+                $row['image_cover'] = '/images/' . $row['image_cover'];
             }
         }
 
