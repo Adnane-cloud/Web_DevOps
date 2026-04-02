@@ -1,6 +1,5 @@
--- Database Creation
-CREATE DATABASE IF NOT EXISTS gestion_evenements;
-USE gestion_evenements;
+CREATE DATABASE IF NOT EXISTS if0_41563635_database;
+USE if0_41563635_database;
 
 -- Users Table
 CREATE TABLE IF NOT EXISTS users (
