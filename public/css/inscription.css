@@ -1,0 +1,66 @@
+    /* Override sidebar overrides if any */
+    body {
+        background-image: linear-gradient(43deg, #304352, #d7d2cc) !important;
+    }
+
+    .inscriptions-header {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    /* Status Badges */
+    .status-badge {
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .status-active {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+    }
+
+    .status-ended {
+        background-color: #ffebee;
+        color: #c62828;
+    }
+
+    /* Admin Dropdown Styles (Ported from admin.css to avoid conflicts) */
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .admin-panel {
+        animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+        transition: transform 0.1s;
+    }
+
+    .cursor-pointer:active {
+        transform: scale(0.95);
+    }
+
+    .hover-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    }

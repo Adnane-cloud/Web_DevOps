@@ -1,0 +1,305 @@
+ body {
+     background-image: linear-gradient(43deg, #304352, #d7d2cc) !important;
+     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+     color: var(--text-primary);
+     min-height: 100vh;
+     position: relative;
+ }
+
+ /* Floating Circles Animation */
+ .circles {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+     z-index: -1;
+     pointer-events: none;
+     padding: 0;
+     margin: 0;
+ }
+
+ .circles li {
+     position: absolute;
+     display: block;
+     list-style: none;
+     width: 20px;
+     height: 20px;
+     background: rgba(255, 255, 255, 0.2);
+     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     border-radius: 80px;
+     border: 1px solid rgba(255, 255, 255, 0.18);
+     animation: animate 25s linear infinite;
+     bottom: -150px;
+ }
+
+ .circles li:nth-child(1) {
+     left: 25%;
+     width: 80px;
+     height: 80px;
+     animation-delay: 0s;
+ }
+
+ .circles li:nth-child(2) {
+     left: 10%;
+     width: 20px;
+     height: 20px;
+     animation-delay: 2s;
+     animation-duration: 12s;
+ }
+
+ .circles li:nth-child(3) {
+     left: 70%;
+     width: 20px;
+     height: 20px;
+     animation-delay: 4s;
+ }
+
+ .circles li:nth-child(4) {
+     left: 40%;
+     width: 60px;
+     height: 60px;
+     animation-delay: 0s;
+     animation-duration: 18s;
+ }
+
+ .circles li:nth-child(5) {
+     left: 65%;
+     width: 20px;
+     height: 20px;
+     animation-delay: 0s;
+ }
+
+ .circles li:nth-child(6) {
+     left: 75%;
+     width: 110px;
+     height: 110px;
+     animation-delay: 3s;
+ }
+
+ .circles li:nth-child(7) {
+     left: 35%;
+     width: 150px;
+     height: 150px;
+     animation-delay: 7s;
+ }
+
+ .circles li:nth-child(8) {
+     left: 50%;
+     width: 25px;
+     height: 25px;
+     animation-delay: 15s;
+     animation-duration: 45s;
+ }
+
+ .circles li:nth-child(9) {
+     left: 20%;
+     width: 15px;
+     height: 15px;
+     animation-delay: 2s;
+     animation-duration: 35s;
+ }
+
+ .circles li:nth-child(10) {
+     left: 85%;
+     width: 150px;
+     height: 150px;
+     animation-delay: 0s;
+     animation-duration: 11s;
+ }
+
+ @keyframes animate {
+     0% {
+         transform: translateY(0) rotate(0deg);
+         opacity: 1;
+         border-radius: 0;
+     }
+
+     100% {
+         transform: translateY(-1000px) rotate(720deg);
+         opacity: 0;
+         border-radius: 50%;
+     }
+ }
+
+ /* Keep the Glass Cards */
+ .pastel-glass-card {
+     cursor: pointer;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     /* Center vertical */
+     align-items: center;
+     /* Center horizontal */
+     text-align: center;
+     /* Center text */
+     height: 100%;
+     position: relative;
+     overflow: hidden;
+     padding: 35px 25px;
+     /* More vertical padding */
+
+     /* User Provided Glass CSS */
+     background: rgba(255, 255, 255, 0.4) !important;
+     backdrop-filter: blur(20px) !important;
+     -webkit-backdrop-filter: blur(20px) !important;
+     border: 1px solid rgba(255, 255, 255, 0.5) !important;
+     border-radius: 50px !important;
+     /* Matched to user request */
+     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+     transition: transform 0.3s ease;
+ }
+
+ .pastel-glass-card:hover {
+     transform: scale(1.02);
+     background: rgba(255, 255, 255, 0.5) !important;
+ }
+
+ .pastel-glass-card h2 {
+     font-size: 48px;
+     /* Bigger number */
+     font-weight: 800;
+     margin: 15px 0 5px 0;
+     /* Spacing around number */
+     line-height: 1;
+     color: #1d1d1f;
+     letter-spacing: -1px;
+ }
+
+ .pastel-glass-card .card-label {
+     text-transform: uppercase;
+     font-size: 13px;
+     font-weight: 700;
+     letter-spacing: 1.5px;
+     color: rgba(0, 0, 0, 0.6);
+     margin-bottom: 0;
+ }
+
+ .pastel-glass-card .card-icon {
+     position: relative;
+     /* No longer absolute */
+     right: auto;
+     top: auto;
+     transform: none;
+     font-size: 38px;
+     /* Slightly smaller icon to fit stack */
+     margin-bottom: 10px;
+     opacity: 0.9;
+     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+ }
+
+ .pastel-glass-card .card-footer-text {
+     font-size: 12px;
+     font-weight: 600;
+     color: rgba(0, 0, 0, 0.5);
+     margin-top: 15px;
+ }
+
+ /* Trend Badges */
+ .trend-badge {
+     font-size: 12px;
+     font-weight: 700;
+     padding: 4px 10px;
+     border-radius: 20px;
+     display: inline-flex;
+     align-items: center;
+     gap: 2px;
+ }
+
+ .trend-badge.positive {
+     background: rgba(52, 199, 89, 0.2);
+     color: #007d35;
+     border: 1px solid rgba(52, 199, 89, 0.3);
+ }
+
+ .trend-badge.neutral {
+     background: rgba(142, 142, 147, 0.2);
+     color: #636366;
+     border: 1px solid rgba(142, 142, 147, 0.3);
+ }
+
+ /* Podium Styles */
+ .podium-bar-wrapper {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width: 60px;
+ }
+
+ .glass-bar {
+     width: 100%;
+     border-radius: 15px 15px 0 0;
+     border: 1px solid rgba(255, 255, 255, 0.3);
+     border-bottom: none;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+     align-items: center;
+     padding-bottom: 10px;
+     transition: height 1s ease;
+     backdrop-filter: blur(10px);
+ }
+
+ .podium-rank {
+     font-weight: 800;
+     color: #fff;
+     font-size: 18px;
+     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+ }
+
+ .podium-label {
+     margin-top: 10px;
+     font-weight: 600;
+     font-size: 11px;
+     color: #1d1d1f;
+     max-width: 100%;
+ }
+
+ .podium-score {
+     font-size: 10px;
+     color: #86868b;
+     font-weight: 500;
+ }
+
+ /* Glass Buttons (Adapted from Register Page) */
+ .btn-glass-primary {
+     background: rgba(0, 0, 0, 0.1) !important;
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     border: 1px solid rgba(0, 0, 0, 0.1) !important;
+     color: #1d1d1f !important;
+     transition: all 0.3s ease;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+ }
+
+ .btn-glass-primary:hover {
+     background: rgba(0, 0, 0, 0.2) !important;
+     transform: translateY(-2px);
+     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+     color: #000 !important;
+ }
+
+ .btn-glass-secondary {
+     background: rgba(255, 255, 255, 0.4) !important;
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     border: 1px solid rgba(255, 255, 255, 0.5) !important;
+     color: #1d1d1f !important;
+     transition: all 0.3s ease;
+ }
+
+ .btn-glass-secondary:hover {
+     background: rgba(255, 255, 255, 0.6) !important;
+     transform: translateY(-2px);
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+ }
+
+ /* Helper for full width widget */
+ .card-padding-remove {
+     padding-left: 0 !important;
+     padding-right: 0 !important;
+     padding-bottom: 0 !important;
+ }

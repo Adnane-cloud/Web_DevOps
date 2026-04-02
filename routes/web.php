@@ -1,0 +1,34 @@
+<?php
+
+Router::get('/', 'HomeController@index');
+Router::get('/menu', 'MenuController@index');
+Router::get('/menu/event/{id}', 'MenuController@details');
+Router::post('/menu/enroll', 'MenuController@enroll');
+Router::post('/menu/cancel-enroll', 'MenuController@cancel_enroll');
+Router::get('/profile', 'ProfileController@index');
+Router::post('/profile/update', 'ProfileController@update');
+Router::get('/login', 'AuthController@login');
+Router::post('/login', 'AuthController@processLogin');
+Router::get('/logout', 'AuthController@logout');
+Router::get('/register', 'AuthController@register');
+Router::post('/register', 'AuthController@processRegister');
+Router::get('/inscriptions', 'MenuController@inscriptions');
+Router::get('/admin', 'AdminController@index');
+Router::get('/admin/events', 'AdminController@events');
+Router::post('/admin/events/add', 'AdminController@add_event');
+Router::post('/admin/events/delete', 'AdminController@delete_event');
+Router::get('/admin/events/edit', 'AdminController@edit_event');
+Router::post('/admin/events/update', 'AdminController@update_event');
+Router::get('/admin/categories', 'AdminController@categories');
+Router::post('/admin/categories/add', 'AdminController@add_category');
+Router::post('/admin/categories/delete', 'AdminController@delete_category');
+Router::get('/admin/categories/edit', 'AdminController@edit_category');
+Router::post('/admin/categories/update', 'AdminController@update_category');
+Router::get('/admin/attendance', 'AdminController@attendance');
+Router::get('/admin/export/events', 'AdminController@export_events');
+Router::get('/admin/user_details', 'AdminController@get_user_details');
+Router::get('/calendar', 'CalendarController@index');
+Router::get('/calendar/api/events', 'CalendarController@get_events'); 
+Router::post('/menu/comment', 'MenuController@add_comment');
+Router::get('/menu/invitation/{id}', 'MenuController@download_invitation');
+Router::get('/menu/search', 'MenuController@search');

@@ -1,0 +1,18 @@
+/* Store Carousel Overrides */
+
+/* Hide Scrollbar but allow functionality */
+.carousel-container {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Apple Card Custom Hover - Complementary CSS */
+
+/* Apple Intelligence Text Gradient */
+/* End of necessary overrides */

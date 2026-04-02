@@ -1,0 +1,59 @@
+  /* Complementary CSS */
+  .auth-glass-container {
+      max-width: 500px;
+      width: 100%;
+      margin: 0 auto;
+  }
+
+  .auth-header h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #1d1d1f;
+  }
+
+  /* Input Styling for Glass Context */
+  .form-control {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #1d1d1f;
+  }
+
+  .form-control:focus {
+      background: rgba(255, 255, 255, 0.4);
+      border-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      color: #1d1d1f;
+  }
+
+  .form-control::placeholder {
+      color: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Rose Glass Button */
+  .btn-rose {
+      background: rgba(61, 63, 68, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(61, 52, 52, 0.3);
+  }
+
+  .btn-rose:hover {
+      background: rgba(102, 105, 114, 0.85);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(51, 45, 45, 0.5);
+  }
+
+  .text-rose {
+      color: #1d1e20ff !important;
+      transition: color 0.2s;
+  }
+
+  .text-rose:hover {
+      color: #212325ff !important;
+  }
