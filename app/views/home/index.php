@@ -1,5 +1,5 @@
 <?php require '../app/views/admin/layout/header.php'; ?>
-<link rel="stylesheet" href="/python/public/css/home.css">
+<link rel="stylesheet" href="css/home.css">
 
 <ul class="circles">
     <li></li>
@@ -114,6 +114,6 @@
     </section>
   
 </main>
-<script src="/python/public/js/home.js"></script>
+<script src="js/home.js"></script>
 
 <?php require '../app/views/admin/layout/footer.php'; ?>
