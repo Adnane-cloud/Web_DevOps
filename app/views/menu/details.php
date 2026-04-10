@@ -45,6 +45,7 @@
                      <h4 class="fw-bold mb-3"><i class="bi bi-chat-left-quote me-2"></i> Reviews & Comments</h4>
                      <!-- Add Comment Form -->
                     <form action="/menu/comment" method="POST" class="mb-4">
+                        <?= csrf_field() ?>
                         <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
                         
                         <div class="mb-2">
@@ -127,6 +128,7 @@
                         </a>
                         
                         <form action="/menu/cancel-enroll" method="POST" onsubmit="return confirm('Are you sure you want to cancel your registration?');">
+                            <?= csrf_field() ?>
                             <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
                             <button type="submit" class="btn btn-outline-danger w-100 py-3 rounded-pill fw-bold">
                                 Cancel Inscription
@@ -138,6 +140,7 @@
                         </button>
                     <?php else: ?>
                         <form action="/menu/enroll" method="POST">
+                            <?= csrf_field() ?>
                             <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
                             <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow-sm mb-3">
                                 Enroll Now

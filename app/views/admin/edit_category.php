@@ -25,6 +25,7 @@ require_once __DIR__ . '/layout/header.php';
         </div>
 
         <form method="POST" action="/admin/categories/update" enctype="multipart/form-data">
+            <?= csrf_field() ?>
             <input type="hidden" name="id" value="<?= $data['category']['id'] ?>">
 
             <?php if(isset($_GET['error'])): ?>

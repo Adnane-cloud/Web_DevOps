@@ -9,6 +9,7 @@ require_once __DIR__ . '/layout/greeting.php';
             <div class="pastel-glass-card mb-4" style="padding: 1.5rem;">
                 <h3 class="h5 fw-bold mb-4">Add Category</h3>
                 <form method="POST" action="/admin/categories/add" enctype="multipart/form-data">
+                    <?= csrf_field() ?>
                     <?php if(isset($_GET['error']) && $_GET['error'] == 'exists'): ?>
                         <div class="alert alert-danger small py-2 mb-3">Category already exists</div>
                     <?php endif; ?>
@@ -64,6 +65,7 @@ require_once __DIR__ . '/layout/greeting.php';
                                 <td class="text-end pe-4">
                                     <a href="/admin/categories/edit?id=<?= $cat['id'] ?>" class="btn-table-action me-1"><i class="bi bi-pencil"></i></a>
                                     <form action="/admin/categories/delete" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this category?');">
+                                        <?= csrf_field() ?>
                                         <input type="hidden" name="id" value="<?= $cat['id'] ?>">
                                         <button type="submit" class="btn-table-action text-danger border-0"><i class="bi bi-trash"></i></button>
                                     </form>

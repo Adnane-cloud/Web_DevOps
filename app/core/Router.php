@@ -15,6 +15,11 @@ class Router {
         $uri = isset($_GET['url']) ? '/' . rtrim($_GET['url'], '/') : '/';
         $method = $_SERVER['REQUEST_METHOD'];
 
+        // Verify CSRF token on every POST request before reaching any controller
+        if ($method === 'POST') {
+            verify_csrf();
+        }
+
         if (isset(self::$routes[$method])) {
             foreach (self::$routes[$method] as $routeUri => $controllerAction) {
                 // Convert {id} to (\d+) for regex matching

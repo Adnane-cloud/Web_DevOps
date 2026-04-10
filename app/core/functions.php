@@ -1,5 +1,41 @@
 <?php
 
+// ── CSRF Protection ──────────────────────────────────────────────────────
+
+/**
+ * Returns the current session CSRF token, generating one if it doesn't exist.
+ */
+function csrf_token(): string {
+    if (session_status() === PHP_SESSION_NONE) session_start();
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    return $_SESSION['csrf_token'];
+}
+
+/**
+ * Outputs a hidden <input> carrying the CSRF token — call inside every POST form.
+ */
+function csrf_field(): string {
+    return '<input type="hidden" name="csrf_token" value="' . htmlspecialchars(csrf_token()) . '">';
+}
+
+/**
+ * Verifies the submitted CSRF token matches the session token.
+ * Terminates with 403 on failure — called automatically for all POST routes.
+ */
+function verify_csrf(): void {
+    if (session_status() === PHP_SESSION_NONE) session_start();
+    $submitted = $_POST['csrf_token'] ?? '';
+    $expected  = $_SESSION['csrf_token'] ?? '';
+    if (empty($submitted) || empty($expected) || !hash_equals($expected, $submitted)) {
+        http_response_code(403);
+        die('Security check failed. Please go back and try again.');
+    }
+}
+
+// ── Auth & Role Helpers ──────────────────────────────────────────────────
+
 function is_logged_in() {
     if (session_status() === PHP_SESSION_NONE) {
         session_start();

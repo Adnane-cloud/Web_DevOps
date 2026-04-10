@@ -26,6 +26,7 @@ require_once __DIR__ . '/layout/header.php';
         </div>
 
         <form method="POST" action="/admin/events/update" enctype="multipart/form-data">
+            <?= csrf_field() ?>
             <input type="hidden" name="id" value="<?= $data['event']['id'] ?>">
 
             <div class="mb-4">

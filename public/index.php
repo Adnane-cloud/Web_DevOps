@@ -3,6 +3,17 @@ error_reporting(E_ALL);
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 ini_set('log_errors', 1);
+
+// Security headers (PHP layer — works even when mod_headers is unavailable)
+header('X-Frame-Options: SAMEORIGIN');
+header('X-Content-Type-Options: nosniff');
+header('Referrer-Policy: strict-origin-when-cross-origin');
+header('Permissions-Policy: geolocation=(), microphone=(), camera=()');
+
+// Harden the session cookie
+ini_set('session.cookie_httponly', 1);
+ini_set('session.use_strict_mode', 1);
+
 session_start();
 
 require __DIR__ . '/../app/core/App.php';

@@ -1,0 +1,18 @@
+# ── Local developer config (never commit real credentials) ──────────────
+app/config/database.local.php
+
+# ── OS / Editor noise ───────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ── FTP deploy state file (regenerated each run) ────────────────────────
+.ftp-deploy-sync-state.json
+
+# ── PHP dependency managers (not used yet, but future-proof) ────────────
+/vendor/
+/node_modules/
+
+# ── Logs ────────────────────────────────────────────────────────────────
+*.log

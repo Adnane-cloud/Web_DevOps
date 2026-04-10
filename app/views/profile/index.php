@@ -89,7 +89,8 @@
                 </div>
                 <?php endif; ?>
 
-                <form action="profile/update" method="POST">
+                <form action="/profile/update" method="POST">
+                    <?= csrf_field() ?>
                     <div class="mb-5">
                         <label class="form-label text-secondary small fw-bold text-uppercase ms-1 mb-3">Personal Information</label>
                         <div class="row g-3">

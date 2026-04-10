@@ -1,3 +1,26 @@
+# ── Security Headers ────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    # Stop MIME-type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    # Limit referrer information sent to other sites
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    # Restrict browser features
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    # Basic Content Security Policy (allows CDNs the app actually uses)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' cdn.jsdelivr.net; img-src 'self' data: api.qrserver.com ui-avatars.com; font-src 'self' cdn.jsdelivr.net; connect-src 'self'"
+</IfModule>
+
+# ── Block direct access to sensitive files ───────────────────────────────
+<FilesMatch "\.(sql|log|env|md|gitignore)$">
+    Require all denied
+</FilesMatch>
+<FilesMatch "^(database\.php|\.htaccess)$">
+    Require all denied
+</FilesMatch>
+
+# ── Routing ──────────────────────────────────────────────────────────────
 RewriteEngine On
 RewriteBase /
 

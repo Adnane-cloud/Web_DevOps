@@ -37,7 +37,7 @@
                     </div>
 
                     <form id="EventiumAuthForm" method="POST" action="/login">
-                        
+                        <?= csrf_field() ?>
                         <?php if(isset($error)): ?>
                             <div class="alert alert-danger small mb-4 rounded-3 text-start">
                                 <i class="bi bi-exclamation-circle-fill me-2"></i> <?= $error ?>

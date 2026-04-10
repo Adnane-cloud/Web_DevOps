@@ -41,6 +41,7 @@ require_once __DIR__ . '/layout/greeting.php';
                         <td class="text-end pe-4">
                             <a href="/admin/events/edit?id=<?= $event['id'] ?>" class="btn-table-action me-1"><i class="bi bi-pencil"></i></a>
                             <form action="/admin/events/delete" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this event?');">
+                                <?= csrf_field() ?>
                                 <input type="hidden" name="id" value="<?= $event['id'] ?>">
                                 <button type="submit" class="btn-table-action text-danger border-0 bg-transparent"><i class="bi bi-trash"></i></button>
                             </form>
@@ -63,6 +64,7 @@ require_once __DIR__ . '/layout/greeting.php';
             </div>
             <div class="modal-body px-4 pt-3 pb-4">
                 <form method="POST" action="/admin/events/add" enctype="multipart/form-data">
+                    <?= csrf_field() ?>
                     <div class="mb-3">
                         <label class="form-label small fw-bold text-secondary">Event Title</label>
                         <input type="text" name="title" class="form-control form-glass" placeholder="e.g. WWDC 2025" required>
