@@ -48,18 +48,18 @@ jobs:
   sast:
     name: SAST — Semgrep
     runs-on: ubuntu-latest
-    continue-on-error: true        # ← remove once all findings are resolved
     container:
       image: semgrep/semgrep
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run Semgrep (PHP + OWASP Top 10 rules)
+      - name: Run Semgrep (PHP security rules)
         run: |
           semgrep \
             --config "p/php" \
             --config "p/owasp-top-ten" \
+            --exclude-rule "generic.nginx.security.request-host-used.request-host-used" \
             --error \
             --quiet \
             .

@@ -1,0 +1,12 @@
+# Files and folders Semgrep should not scan.
+# Non-application assets have no security-relevant PHP code.
+
+# Static placeholder images
+public/images/
+
+# Database schema (SQL, not PHP — use a SQL linter separately if needed)
+database.sql
+
+# Documentation
+README.md
+*.md

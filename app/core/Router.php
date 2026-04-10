@@ -3,6 +3,20 @@
 class Router {
     protected static $routes = [];
 
+    /**
+     * Explicit allowlist of controller classes that may be instantiated.
+     * This prevents tainted-object-instantiation: an attacker crafting a URL
+     * can never force the router to new up an arbitrary class.
+     */
+    private static $allowedControllers = [
+        'HomeController',
+        'MenuController',
+        'AuthController',
+        'AdminController',
+        'ProfileController',
+        'CalendarController',
+    ];
+
     public static function get($uri, $controller) {
         self::$routes['GET'][$uri] = $controller;
     }
@@ -33,7 +47,7 @@ class Router {
                     $controllerName = $parts[0];
                     $action = $parts[1];
 
-                    if (class_exists($controllerName)) {
+                    if (in_array($controllerName, self::$allowedControllers, true) && class_exists($controllerName)) {
                         $controller = new $controllerName();
                         if (method_exists($controller, $action)) {
                             // Call action with extracted params
