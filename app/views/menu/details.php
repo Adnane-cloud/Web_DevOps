@@ -44,7 +44,7 @@
                 <div class="content-card p-4 mt-3" id="reviews" style="height: auto;">
                      <h4 class="fw-bold mb-3"><i class="bi bi-chat-left-quote me-2"></i> Reviews & Comments</h4>
                      <!-- Add Comment Form -->
-                    <form action="menu/comment" method="POST" class="mb-4">
+                    <form action="/menu/comment" method="POST" class="mb-4">
                         <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
                         
                         <div class="mb-2">
@@ -126,7 +126,7 @@
                             <i class="bi bi-download me-2"></i> Download Invitation
                         </a>
                         
-                        <form action="menu/cancel-enroll" method="POST" onsubmit="return confirm('Are you sure you want to cancel your registration?');">
+                        <form action="/menu/cancel-enroll" method="POST" onsubmit="return confirm('Are you sure you want to cancel your registration?');">
                             <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
                             <button type="submit" class="btn btn-outline-danger w-100 py-3 rounded-pill fw-bold">
                                 Cancel Inscription
@@ -137,7 +137,7 @@
                             Event Ended
                         </button>
                     <?php else: ?>
-                        <form action="menu/enroll" method="POST">
+                        <form action="/menu/enroll" method="POST">
                             <input type="hidden" name="event_id" value="<?= $event['id'] ?>">
                             <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow-sm mb-3">
                                 Enroll Now

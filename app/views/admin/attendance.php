@@ -69,7 +69,7 @@ require_once __DIR__ . '/layout/greeting.php';
                 </div>
                 
                 <!-- Export -->
-                <a href="/admin/attendance/export?event_id=<?= $data['selected_event'] ?>" class="btn btn-glass-secondary rounded-pill d-flex align-items-center justify-content-center" title="Export CSV">
+                <a href="/admin/export/events?event_id=<?= $data['selected_event'] ?>" class="btn btn-glass-secondary rounded-pill d-flex align-items-center justify-content-center" title="Export CSV">
                     <i class="bi bi-download"></i>
                 </a>
             </form>

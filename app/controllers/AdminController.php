@@ -508,10 +508,10 @@ class AdminController extends Controller {
                 $event['description'],
                 $event['date_evenement'],
                 $event['lieu'],
-                $event['id_categorie'],
+                $event['categorie_id'],
                 $event['nb_max_participants'],
                 $event['image_cover'],
-                $event['id_organisateur'],
+                $event['createur_id'],
                 $event['est_cloture']
             ]);
         }
