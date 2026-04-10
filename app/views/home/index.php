@@ -60,7 +60,7 @@
                     <a href="/menu" class="cat-btn-secondary">Browse</a>
                 </div>
                 <div class="category-tile-image">
-                    <img src="<?= $catImg ?>" alt="<?= htmlspecialchars($cat['nom']) ?>">
+                    <img src="<?= $catImg ?>" alt="<?= htmlspecialchars($cat['nom']) ?>" onerror="this.onerror=null;this.style.opacity='0'">
                 </div>
             </div>
             <?php $i++; endforeach; ?>
@@ -92,7 +92,7 @@
                     }
                 ?>
                 <div class="atv-slide <?= $idx === 0 ? 'active' : '' ?>" data-index="<?= $idx ?>" onclick="atvGoTo(<?= $idx ?>)">
-                    <img src="<?= $evtImg ?>" alt="<?= htmlspecialchars($event['titre']) ?>">
+                    <img src="<?= $evtImg ?>" alt="<?= htmlspecialchars($event['titre']) ?>" onerror="this.onerror=null;this.style.opacity='0'">
                     <div class="atv-slide-overlay">
                         <h3 class="atv-slide-title"><?= htmlspecialchars($event['titre']) ?></h3>
                         <div class="atv-slide-meta">

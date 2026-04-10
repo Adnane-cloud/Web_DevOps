@@ -1,0 +1,2 @@
+# Serve SVG-content placeholder files (stored as .jpg) with the correct MIME type
+AddType image/svg+xml .jpg

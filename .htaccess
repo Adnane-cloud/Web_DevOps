@@ -1,11 +1,14 @@
 RewriteEngine On
 RewriteBase /
 
-# 1. If the file exists in the public folder (CSS, JS, Images), serve it directly
-RewriteCond %{DOCUMENT_ROOT}/public%{REQUEST_URI} -f
-RewriteRule ^(.*)$ public/$1 [L]
+# Handle root URL explicitly (prevents 403 Forbidden on homepage)
+RewriteRule ^$ public/index.php [L]
 
-# 2. If the file DOES NOT exist, route the request through index.php with the URL path
+# Serve CSS, JS, and media files directly from the public/ folder
+# This replaces the unreliable DOCUMENT_ROOT file-check used before
+RewriteRule ^(css|js|uploads|images)/(.+)$ public/$1/$2 [L]
+
+# Route all other requests through the PHP router
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ public/index.php?url=$1 [L,QSA]
+RewriteRule ^(.+)$ public/index.php?url=$1 [L,QSA]

@@ -69,7 +69,7 @@
                                         $imgSrc = '/images/' . $imgSrc; 
                                     }
                                 ?>
-                                <img src="<?= $imgSrc ?>" alt="<?= $item['title'] ?>" class="img-fluid" style="max-height: 100%; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                                <img src="<?= $imgSrc ?>" alt="<?= $item['title'] ?>" class="img-fluid" style="max-height: 100%; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));" onerror="this.onerror=null;this.style.opacity='0'">
                             </div>
                             <p class="small fw-semibold mb-0"><?= $item['title'] ?></p>
                         </a>
@@ -130,7 +130,7 @@
                                                             $evtImg = '/images/' . $evtImg;
                                                         }
                                                     ?>
-                                                    <img src="<?= $evtImg ?>" alt="<?= htmlspecialchars($event['title']) ?>" class="card-image" style="display: block;">
+                                                    <img src="<?= $evtImg ?>" alt="<?= htmlspecialchars($event['title']) ?>" class="card-image" style="display: block;" onerror="this.onerror=null;this.style.opacity='0'">
                                                     <?php else: ?>
                                                         <div style="height: 150px; background: #ddd; display:flex; align-items:center; justify-content:center;">No Image</div>
                                                     <?php endif; ?>
